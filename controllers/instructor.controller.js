@@ -40,7 +40,7 @@ export const makeInstructor = async (req, res) => {
     try {
       const user = await User.findById(req.user._id).exec();
       const account = await stripe.accounts.retrieve(user.stripe_account_id);
-      console.log("ACCOUNT => ", account);
+      // console.log("ACCOUNT => ", account);
       if (!account.charges_enabled) {
         return res.staus(401).send("Unauthorized");
       } else {
@@ -64,7 +64,7 @@ export const makeInstructor = async (req, res) => {
   export const currentInstructor = async (req, res) => {
     try {
       let user = await User.findById(req.auth._id).select("-password").exec();
-      console.log("CURRENT INSTRUCTOR => ", user);
+      // console.log("CURRENT INSTRUCTOR => ", user);
       if (!user.role.includes("Instructor")) {
         return res.sendStatus(403);
       } else {

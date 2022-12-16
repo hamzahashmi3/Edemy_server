@@ -1,4 +1,4 @@
-import mongoose, { mongo } from "mongoose";
+import mongoose from "mongoose";
 
 const { ObjectId } = mongoose.Schema;
 
@@ -19,7 +19,7 @@ const lessonSchema = new mongoose.Schema(
       type: {},
       minlength: 200,
     },
-    video_link: {},
+    video: {},
     free_preview: {
       type: Boolean,
       default: false,
