@@ -86,3 +86,14 @@ export const instructorCourses = async (req, res) => {
     }
   };
   
+  export const studentCount = async (req, res) => {
+    try {
+      const users = await User.find({ courses: req.body.courseId })
+        .select("_id")
+        .exec();
+      res.json(users);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  
